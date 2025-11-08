@@ -13,8 +13,7 @@ public class SalaDeReuniao extends Espaco {
         super();
     }
 
-    public SalaDeReuniao(String id, String nome, int capacidade, boolean disponivel, double precoPorHora,
-                         LocalDateTime inicio, LocalDateTime fim, boolean usaProjetor) {
+    public SalaDeReuniao(String id, String nome, int capacidade, boolean disponivel, double precoPorHora,   LocalDateTime inicio, LocalDateTime fim, boolean usaProjetor) {
         super(id, nome, capacidade, disponivel, precoPorHora);
         this.inicio = inicio;
         this.fim = fim;
@@ -60,4 +59,5 @@ public class SalaDeReuniao extends Espaco {
         return calcularCustoReserva(horas);
     }
 }
+
 
