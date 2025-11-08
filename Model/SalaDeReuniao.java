@@ -49,14 +49,15 @@ public class SalaDeReuniao extends Espaco {
     public double calcularCustoReserva(double horas) {
         double custoBase = horas * getPrecoPorHora();
         if (usaProjetor) {
-            custoBase += 15.0; // taxa fixa do projetor
+            custoBase += 15.0; 
         }
         return custoBase;
     }
 
-    // Versão alternativa que calcula a duração automaticamente
+  
     public double calcularCustoReserva() {
         double horas = Duration.between(inicio, fim).toHours();
         return calcularCustoReserva(horas);
     }
 }
+
