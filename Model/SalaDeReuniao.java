@@ -1,74 +1,62 @@
-package model_;
+package model;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
 
+public class SalaDeReuniao extends Espaco {
 
-public abstract class Espaco {
-	
-		private String id;
-		private String nome;
-		private Integer capacidade;
-		private boolean disponivel;
-		private double precoPorHora;
-		
-		
-		public Espaco() {
-		}
+    private LocalDateTime inicio;
+    private LocalDateTime fim;
+    private boolean usaProjetor;
 
-		public Espaco(String id, String nome, Integer capacidade, boolean disponivel, double precoPorHora) {
-			this.id = id;
-			this.nome = nome;
-			this.capacidade = capacidade;
-			this.disponivel = disponivel;
-			this.precoPorHora = precoPorHora;
-		}
+    public SalaDeReuniao() {
+        super();
+    }
 
-		public String getId() {
-			return id;
-		}
+    public SalaDeReuniao(String id, String nome, int capacidade, boolean disponivel, double precoPorHora,
+                         LocalDateTime inicio, LocalDateTime fim, boolean usaProjetor) {
+        super(id, nome, capacidade, disponivel, precoPorHora);
+        this.inicio = inicio;
+        this.fim = fim;
+        this.usaProjetor = usaProjetor;
+    }
 
-		public void setId(String id) {
-			this.id = id;
-		}
+    public LocalDateTime getInicio() {
+        return inicio;
+    }
 
-		public String getNome() {
-			return nome;
-		}
+    public void setInicio(LocalDateTime inicio) {
+        this.inicio = inicio;
+    }
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+    public LocalDateTime getFim() {
+        return fim;
+    }
 
-		public Integer getCapacidade() {
-			return capacidade;
-		}
+    public void setFim(LocalDateTime fim) {
+        this.fim = fim;
+    }
 
-		public void setCapacidade(Integer capacidade) {
-			this.capacidade = capacidade;
-		}
+    public boolean isUsaProjetor() {
+        return usaProjetor;
+    }
 
-		public boolean isDisponivel() {
-			return disponivel;
-		}
+    public void setUsaProjetor(boolean usaProjetor) {
+        this.usaProjetor = usaProjetor;
+    }
 
-		public void setDisponivel(boolean disponivel) {
-			this.disponivel = disponivel;
-		}
+    @Override
+    public double calcularCustoReserva(double horas) {
+        double custoBase = horas * getPrecoPorHora();
+        if (usaProjetor) {
+            custoBase += 15.0; // taxa fixa do projetor
+        }
+        return custoBase;
+    }
 
-		public double getPrecoPorHora() {
-			return precoPorHora;
-		}
-
-		public void setPrecoPorHora(double precoPorHora) {
-			this.precoPorHora = precoPorHora;
-		}
-
-		public abstract double calcularCustoReserva(double duracao);
-
-		
-		
-	}
-
-
-
-
+    // Versão alternativa que calcula a duração automaticamente
+    public double calcularCustoReserva() {
+        double horas = Duration.between(inicio, fim).toHours();
+        return calcularCustoReserva(horas);
+    }
+}
