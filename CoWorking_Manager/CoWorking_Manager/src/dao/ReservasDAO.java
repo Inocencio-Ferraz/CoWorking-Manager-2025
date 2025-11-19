@@ -1,10 +1,12 @@
 package dao;
 
-public class ReservasDAO extends baseDAO{
+import model_.Espaco;
+import model_.Reservas;
 
-	public ReservasDAO(String fileName, Class type) {
-		super(fileName, type);
-		// TODO Auto-generated constructor stub
+public class ReservasDAO extends baseDAO<Reservas>{
+
+	public ReservasDAO() {
+		  super("data/Reservas.json", Reservas.class); 
 	}
 
 	@Override
@@ -20,3 +22,4 @@ public class ReservasDAO extends baseDAO{
 	}
 
 }
+
