@@ -22,6 +22,7 @@ public class Reservas {
 		this.id = id;
 		this.espaco = espaco;
 		this.status = status;
+		//colocar essa verificação no controller
 		if(dataHoraInicio.isBefore(dataHoraFim) == false) {
 			throw new IllegalArgumentException("Erro de Reserva.");
 		}else {
@@ -82,3 +83,4 @@ public class Reservas {
 	
 	
 }
+
