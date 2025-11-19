@@ -1,9 +1,12 @@
 package dao;
 
-public class PagamentoDAO extends baseDAO {
+import model_.Pagamento;
+import model_.Reservas;
 
-	public PagamentoDAO(String fileName, Class type) {
-		super(fileName, type);
+public class PagamentoDAO extends baseDAO<Pagamento> {
+
+	public PagamentoDAO() {
+		super("data/Pagamento.json", Pagamento.class); 
 	
 	}
 
@@ -20,3 +23,4 @@ public class PagamentoDAO extends baseDAO {
 
 	
 }
+
