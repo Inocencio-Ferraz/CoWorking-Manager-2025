@@ -2,10 +2,10 @@ package dao;
 
 public class EspacoDAO extends baseDAO{
 
-	public EspacoDAO(String fileName, Class type) {
-		super(fileName, type);
-		
-	}
+	private EspacoDAO() {
+        super("data/Espaco.json", Espaco.class); 
+    }
+	
 
 	@Override
 	public void salvar() {
@@ -20,3 +20,4 @@ public class EspacoDAO extends baseDAO{
 	}
 
 }
+
