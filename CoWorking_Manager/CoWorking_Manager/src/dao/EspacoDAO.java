@@ -1,10 +1,13 @@
 package dao;
 
-public class EspacoDAO extends baseDAO{
+import model_.Espaco;
+
+public class EspacoDAO extends baseDAO<Espaco>{
 
 	private EspacoDAO() {
         super("data/Espaco.json", Espaco.class); 
     }
+	
 	
 
 	@Override
@@ -20,4 +23,5 @@ public class EspacoDAO extends baseDAO{
 	}
 
 }
+
 
