@@ -1,5 +1,5 @@
 package dao;
-
+//teste
 import java.util.List;
 
 public interface Persistencia<T> {
