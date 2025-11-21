@@ -7,20 +7,22 @@ public class EspacoDAO extends baseDAO<Espaco>{
 	private EspacoDAO() {
         super("data/Espaco.json", Espaco.class); 
     }
-	
-	
 
+	
 	@Override
-	public void salvar() {
-		
-		
-	}
+    public Espaco buscarPorId(String id) { //buscar por id
+        return listar(Espaco.class).stream()
+                .filter(e -> e.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+    }
 
-	@Override
-	public void excluir() {
-		
-		
-	}
+    @Override
+    public void excluir(String id) { //excluir
+        var lista = listar(Espaco.class);
+        lista.removeIf(e -> e.getId().equals(id));
+        salvarTodos(lista);
+    }
 
 }
 
