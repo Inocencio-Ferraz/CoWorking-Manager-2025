@@ -1,16 +1,16 @@
 package dao;
 
-import model_.Reservas;
+import model_.Reserva;
 
-public class ReservasDAO extends baseDAO<Reservas>{
+public class ReservaDAO extends baseDAO<Reserva>{
 
-	public ReservasDAO() {
-		  super("data/Reservas.json", Reservas.class); 
+	public ReservaDAO() {
+		  super("data/Reserva.json", Reserva.class); 
 	}
 
 	@Override
-    public Reservas buscarPorId(String id) {
-        return listar(Reservas.class).stream()
+    public Reserva buscarPorId(String id) {
+        return listar(Reserva.class).stream()
                 .filter(r -> r.getId().toString().equals(id))
                 .findFirst()
                 .orElse(null);
@@ -18,11 +18,12 @@ public class ReservasDAO extends baseDAO<Reservas>{
 
     @Override
     public void excluir(String id) {
-        var lista = listar(Reservas.class);
+        var lista = listar(Reserva.class);
         lista.removeIf(r -> r.getId().toString().equals(id));
         salvarTodos(lista);
     }
 
 }
+
 
 
