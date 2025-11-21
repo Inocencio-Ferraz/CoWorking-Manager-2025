@@ -11,13 +11,14 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     
     protected String fileName;
     private Class<T> type;
-    protected Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
+    protected Gson gson; 
     //GsonBuilder cria gson - setPrettyPrinting permite formatar livremente 
     //.create() finaliza a criação e devolve
    
     public BaseDAO(String fileName, Class<T> type) {
         this.fileName = fileName;
         this.type = type;
+        this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
     
     public List<T> listar() {
@@ -64,7 +65,7 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
    
     protected void escreverArquivo(List<T> lista) {
         try (Writer writer = Files.newBufferedWriter(Paths.get(fileName))) {
-            new Gson().toJson(lista, writer);
+            gson.toJson(lista, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,7 +74,7 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     
     public void salvarTodos(List<T> lista) { //salva todos
         try (Writer writer = Files.newBufferedWriter(Paths.get(fileName))) {
-            gson.toJson(lista, writer);
+        	gson.toJson(lista, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
