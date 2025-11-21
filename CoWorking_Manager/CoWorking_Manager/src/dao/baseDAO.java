@@ -11,9 +11,10 @@ public abstract class baseDAO<T> implements Persistencia<T> {
     
     protected String fileName;
     private Class<T> type;
-    protected Gson gson = new GsonBuilder().setPrettyPrinting().create(); //criação da gson
-    
-  
+    protected Gson gson = new GsonBuilder().setPrettyPrinting().create(); 
+    //GsonBuilder cria gson - setPrettyPrinting permite formatar livremente 
+    //.create() finaliza a criação e devolve
+   
     public baseDAO(String fileName, Class<T> type) {
         this.fileName = fileName;
         this.type = type;
