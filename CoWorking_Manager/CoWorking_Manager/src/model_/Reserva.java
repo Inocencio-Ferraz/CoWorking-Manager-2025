@@ -6,7 +6,7 @@ import java.util.Date;
 
 import enums.Status;
 
-public class Reservas {
+public class Reserva {
 
 	private Integer id;
 	private Espaco espaco;
@@ -14,10 +14,10 @@ public class Reservas {
 	private LocalDateTime dataHoraFim;
 	private Status status;
 	
-	public Reservas() {
+	public Reserva() {
 	}
 
-	public Reservas(Integer id, Espaco espaco, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim, Status status) {
+	public Reserva(Integer id, Espaco espaco, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim, Status status) {
 		super();
 		this.id = id;
 		this.espaco = espaco;

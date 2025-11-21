@@ -7,7 +7,7 @@ import java.nio.file.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-public abstract class baseDAO<T> implements Persistencia<T> {
+public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     
     protected String fileName;
     private Class<T> type;
@@ -15,7 +15,7 @@ public abstract class baseDAO<T> implements Persistencia<T> {
     //GsonBuilder cria gson - setPrettyPrinting permite formatar livremente 
     //.create() finaliza a criação e devolve
    
-    public baseDAO(String fileName, Class<T> type) {
+    public BaseDAO(String fileName, Class<T> type) {
         this.fileName = fileName;
         this.type = type;
     }
@@ -37,7 +37,7 @@ public abstract class baseDAO<T> implements Persistencia<T> {
         }
     }
     
-    @Override
+    
     public T buscarPorId(String id) { //buscar por id
         return listar(type).stream()
                 .filter(obj -> obj.toString().contains(id))
@@ -70,7 +70,7 @@ public abstract class baseDAO<T> implements Persistencia<T> {
         }
     }
     
-    @Override
+    
     public void salvarTodos(List<T> lista) { //salva todos
         try (Writer writer = Files.newBufferedWriter(Paths.get(fileName))) {
             gson.toJson(lista, writer);

@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-public interface Persistencia<T> {
+public interface PersistenciaDAO<T> {
 	
 	void salvar (T obj);
 	void excluir(String id);

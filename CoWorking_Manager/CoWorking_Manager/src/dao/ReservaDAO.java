@@ -2,7 +2,8 @@ package dao;
 
 import model_.Reserva;
 
-public class ReservaDAO extends baseDAO<Reserva>{
+
+public class ReservaDAO extends BaseDAO<Reserva>{
 
 	public ReservaDAO() {
 		  super("data/Reserva.json", Reserva.class); 

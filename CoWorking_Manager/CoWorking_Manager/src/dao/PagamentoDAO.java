@@ -3,7 +3,7 @@ package dao;
 import model_.Pagamento;
 
 
-public class PagamentoDAO extends baseDAO<Pagamento> {
+public class PagamentoDAO extends BaseDAO<Pagamento> {
 
 	public PagamentoDAO() {
 		super("data/Pagamento.json", Pagamento.class); 
