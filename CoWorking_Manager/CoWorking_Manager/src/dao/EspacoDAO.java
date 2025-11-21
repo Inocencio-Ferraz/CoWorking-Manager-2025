@@ -4,7 +4,7 @@ import model_.Espaco;
 
 public class EspacoDAO extends baseDAO<Espaco>{
 
-	private EspacoDAO() {
+	public EspacoDAO() {
         super("data/Espaco.json", Espaco.class); 
     }
 
@@ -25,5 +25,6 @@ public class EspacoDAO extends baseDAO<Espaco>{
     }
 
 }
+
 
 
