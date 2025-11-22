@@ -1,4 +1,21 @@
-public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
+package dao;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import model_.Espaco;
+
+public abstract class BaseDAO<T> implements Persistencia<T> {
     
     protected String fileName;
     private Class<T> type;
