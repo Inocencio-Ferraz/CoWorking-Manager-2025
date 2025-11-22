@@ -1,12 +1,3 @@
-package dao;
-
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import java.io.*;
-import java.nio.file.*;
-import java.lang.reflect.Type;
-import java.util.*;
-
 public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     
     protected String fileName;
@@ -18,7 +9,12 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     public BaseDAO(String fileName, Class<T> type) {
         this.fileName = fileName;
         this.type = type;
-        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        // Mudei esse Gson, colocando os Serializadores
+        this.gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(LocalDateTime.class, new SerializadorLocalDateTime())
+                .registerTypeAdapter(Espaco.class, new SerializadorEspaco())
+                .create();
     }
     
     public List<T> listar() {
@@ -50,11 +46,11 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     public List<T> listar(Class<T> clazz) {
         List<T> lista = new ArrayList<>();
         try {
-           
             String json = new String(Files.readAllBytes(Paths.get(fileName)));
             if (!json.trim().isEmpty()) { 
                 Type listType = TypeToken.getParameterized(ArrayList.class, clazz).getType();
-                lista = new Gson().fromJson(json, listType);
+                // Mudei de new Gson para gson
+                lista = gson.fromJson(json, listType);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -64,8 +60,13 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
 
    
     protected void escreverArquivo(List<T> lista) {
+
+        // toJson com Typetoken
+        String json = gson.toJson(lista, TypeToken.getParameterized(ArrayList.class, type).getType());
+
+        // Mudei para o writer.write(json)
         try (Writer writer = Files.newBufferedWriter(Paths.get(fileName))) {
-            gson.toJson(lista, writer);
+            writer.write(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
