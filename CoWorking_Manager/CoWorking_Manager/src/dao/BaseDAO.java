@@ -15,7 +15,7 @@ import com.google.gson.reflect.TypeToken;
 
 import model_.Espaco;
 
-public abstract class BaseDAO<T> implements Persistencia<T> {
+public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     
     protected String fileName;
     private Class<T> type;
