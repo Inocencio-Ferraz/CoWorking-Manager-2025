@@ -8,6 +8,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import java.lang.reflect.Type;
 
 import model_.Espaco;
 
@@ -51,17 +52,6 @@ public class SerializadorEspaco implements JsonSerializer<Espaco>, JsonDeseriali
         }
     }
 
-	@Override
-	public Espaco deserialize(JsonElement json, java.lang.reflect.Type typeOfT, JsonDeserializationContext context)
-			throws JsonParseException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public JsonElement serialize(Espaco src, java.lang.reflect.Type typeOfSrc, JsonSerializationContext context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
