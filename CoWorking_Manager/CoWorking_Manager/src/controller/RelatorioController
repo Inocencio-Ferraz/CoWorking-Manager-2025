@@ -1,0 +1,7 @@
+package controller;
+
+// oq fazer aqui reservas por período, faturamento por tipo, utilização por espaço, top mais usados
+
+public class RelatorioController {
+
+}
