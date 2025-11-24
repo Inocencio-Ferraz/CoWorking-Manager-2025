@@ -4,6 +4,6 @@ public enum Pagamento {
 	
 	PIX,
 	CARTAO,
-	DINEHIRO;
+	DINHEIRO;
 	
 }

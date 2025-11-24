@@ -1,16 +1,14 @@
 package controller;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import dao.EspacoDAO;
 import dao.PagamentoDAO;
-import model_.Auditorio;
+//import model_.Auditorio;
 import model_.CabineIndividual;
 import model_.Espaco;
-import model_.Pagamento;
+//import model_.Pagamento;
 import model_.SalaDeReuniao;
-
-// oq fazer aqui cadastrar, editar, listar, remover, buscar po ID
 
 
 public class EspacoController {
