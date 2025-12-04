@@ -88,6 +88,12 @@ public class Main {
 		    System.out.println(salvar);
 		}
 		
+		else {
+			System.out.println("Opção inválida.");
+		}
+		System.out.println("\nPressione ENTER para continuar...");
+        sc.nextLine();
+        LimparTela.cls();
 		
 	}
 	
