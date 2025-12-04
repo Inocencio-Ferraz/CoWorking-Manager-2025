@@ -1,35 +1,78 @@
 package controller;
 
-//import java.time.LocalDateTime;
-
 import dao.EspacoDAO;
-import dao.PagamentoDAO;
 import model_.Auditorio;
 import model_.CabineIndividual;
 import model_.Espaco;
-import model_.Pagamento;
 import model_.SalaDeReuniao;
 
-
 public class EspacoController {
-	
-	EspacoDAO espacoDAO = new EspacoDAO();
-	PagamentoDAO pagamentoDAO = new PagamentoDAO();
-	
-	public void salvarSalaDeReuniao(String name, Integer capacidade, Double precoPorHora) {	
-		Espaco espaco = new SalaDeReuniao();	
-		espacoDAO.salvar(espaco);
-	}
-	
-	public void salvarCabineIndividual(String name, Integer capacidade, Double precoPorHora) {	
-		Espaco espaco = new CabineIndividual();	
-		espacoDAO.salvar(espaco);
-	}
-	
-	public void salvarAuditorio(String name, Integer capacidade, Double precoPorHora) {
-		Espaco espaco = new Auditorio();
-		espacoDAO.salvar(espaco);
-	}
 
+    private EspacoDAO espacoDAO = new EspacoDAO();
+
+   //Validação e correção de erros.
+    private String validarEspaco(String nome, Integer capacidade, Double precoPorHora) {
+
+        if (nome == null || nome.trim().isEmpty()) {
+            return "Erro: Nome do espaço inválido.";
+        }
+
+        if (capacidade == null || capacidade <= 0) {
+            return "Erro: Capacidade deve ser maior que zero.";
+        }
+
+        if (precoPorHora == null || precoPorHora <= 0) {
+            return "Erro: Preço por hora inválido.";
+        }
+
+        return null; //
+    }
+
+    public String salvarSalaDeReuniao(String nome, Integer capacidade, Double precoPorHora) {
+
+        String erro = validarEspaco(nome, capacidade, precoPorHora);
+        if (erro != null) {
+            return erro;
+        }
+
+        Espaco espaco = new SalaDeReuniao();
+        espaco.setNome(nome);
+        espaco.setCapacidade(capacidade);
+        espaco.setPrecoPorHora(precoPorHora);
+
+        espacoDAO.salvar(espaco);
+        return "Sala de reunião cadastrada com sucesso!";
+    }
+
+    public String salvarCabineIndividual(String nome, Integer capacidade, Double precoPorHora) {
+
+        String erro = validarEspaco(nome, capacidade, precoPorHora);
+        if (erro != null) {
+            return erro;
+        }
+
+        Espaco espaco = new CabineIndividual();
+        espaco.setNome(nome);
+        espaco.setCapacidade(capacidade);
+        espaco.setPrecoPorHora(precoPorHora);
+
+        espacoDAO.salvar(espaco);
+        return "Cabine individual cadastrada com sucesso!";
+    }
+
+    public String salvarAuditorio(String nome, Integer capacidade, Double precoPorHora) {
+
+        String erro = validarEspaco(nome, capacidade, precoPorHora);
+        if (erro != null) {
+            return erro;
+        }
+
+        Espaco espaco = new Auditorio();
+        espaco.setNome(nome);
+        espaco.setCapacidade(capacidade);
+        espaco.setPrecoPorHora(precoPorHora);
+
+        espacoDAO.salvar(espaco);
+        return "Auditório cadastrado com sucesso!";
+    }
 }
-
