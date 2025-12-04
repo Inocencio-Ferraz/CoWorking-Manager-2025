@@ -32,7 +32,7 @@ public class Main {
 			int capacidade = sc.nextInt();
 			
 			//System.out.print("Disponível: ");
-			System.out.print("Preço: ");
+			System.out.print("horas: ");
 			double precoPorHora = sc.nextDouble();
 			
 			EspacoController controller = new EspacoController();

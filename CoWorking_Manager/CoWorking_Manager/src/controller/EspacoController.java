@@ -1,5 +1,5 @@
 package controller;
-
+//1 erro abaixo
 import dao.EspacoDAO;
 import model_.Auditorio;
 import model_.CabineIndividual;
@@ -29,8 +29,8 @@ public class EspacoController {
 
     
     private String gerarNovoId() {
-
-        int novoId = espacoDAO.listar(Espaco.class).stream()
+    	//Sempre que cria uma nova reserva, id fica em 1.
+        int novoId = espacoDAO.listar(Espaco.class).stream() 
                 .mapToInt(e -> {
                     try {
                         return e.getId() == null ? 0 : Integer.parseInt(e.getId());
