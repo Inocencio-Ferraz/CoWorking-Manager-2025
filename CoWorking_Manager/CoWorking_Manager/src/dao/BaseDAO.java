@@ -23,6 +23,7 @@ public abstract class BaseDAO<T> implements PersistenciaDAO<T> {
     //GsonBuilder cria gson - setPrettyPrinting permite formatar livremente 
     //.create() finaliza a criação e devolve
    
+
     public BaseDAO(String fileName, Class<T> type) {
         this.fileName = fileName;
         this.type = type;

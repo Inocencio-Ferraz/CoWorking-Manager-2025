@@ -10,7 +10,6 @@ public class EspacoController {
 
     private EspacoDAO espacoDAO = new EspacoDAO();
 
-    
     private String validarEspaco(String nome, Integer capacidade, Double precoPorHora) {
 
         if (nome == null || nome.trim().isEmpty()) {

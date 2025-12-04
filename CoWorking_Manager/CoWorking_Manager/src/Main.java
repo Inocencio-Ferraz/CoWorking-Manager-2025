@@ -12,7 +12,7 @@ public class Main {
 	while(true) {
 		
 		System.out.print("Bem vindo ao CoWorking Manager!!!\nServiços disponíveis:");
-		System.out.print("\n[1] Auditório\n[2] Cabine Indivídual\n[3] Sala de Reunião");
+		System.out.print("\n[1] Auditório\n[2] Cabine Indivídual\n[3] Sala de Reunião\n[4] Ver reservas");
 		System.out.print("\nOpção desejada: ");
 		int op = sc.nextInt();
 		
@@ -88,6 +88,9 @@ public class Main {
 		    System.out.println(salvar);
 		}
 		
+		else if(op == 4) {
+			System.out.println("Todas as reservas: ");
+		}
 		else {
 			System.out.println("Opção inválida.");
 		}
