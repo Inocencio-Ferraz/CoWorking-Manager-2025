@@ -1,6 +1,10 @@
-import com.google.gson.Gson;
-import controller.EspacoController;
+package Program;
 import java.util.Scanner;
+
+import com.google.gson.Gson;
+
+import Views.PagamentoViews;
+import Views.ReservaViews;
 
 public class Main {
 
@@ -12,7 +16,32 @@ public class Main {
 	while(true) {
 		
 		System.out.print("Bem vindo ao CoWorking Manager!!!\nServiços disponíveis:");
-		System.out.print("\n[1] Auditório\n[2] Cabine Indivídual\n[3] Sala de Reunião\n[4] Ver reservas");
+		System.out.println("\n[1] Reserva espaço\n[2] Realizar Pagamento\n[3] Relatorio\n[4] Fechar Programa");
+		int op = sc.nextInt();
+		
+		
+		if(op == 1) {
+			
+			ReservaViews now = new ReservaViews() ;
+			now.realizarRerserva();
+			
+		}
+		else if(op == 2) {
+			PagamentoViews now = new PagamentoViews();
+			now.operacaoPagamentoViews();
+			
+		}
+		else if(op == 3) {
+			
+		}
+		else if(op == 4) {
+			break;
+		}
+		
+	}
+		
+		/*System.out.print("Bem vindo ao CoWorking Manager!!!\nServiços disponíveis:");
+		System.out.print("\n[1] Auditório\n[2] Cabine Indivídual\n[3] Sala de Reunião\n[4] Ver reservas\n[5] Sair");
 		System.out.print("\nOpção desejada: ");
 		int op = sc.nextInt();
 		
@@ -91,6 +120,10 @@ public class Main {
 		else if(op == 4) {
 			System.out.println("Todas as reservas: ");
 		}
+		
+		else if(op == 5) {
+			break;
+		}
 		else {
 			System.out.println("Opção inválida.");
 		}
@@ -98,7 +131,7 @@ public class Main {
         sc.nextLine();
         LimparTela.cls();
 		
-	}
+	}*/
 	
 	}
 
