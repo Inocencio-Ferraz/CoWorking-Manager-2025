@@ -4,10 +4,10 @@ package controller;
 
 import dao.EspacoDAO;
 import dao.PagamentoDAO;
-//import model_.Auditorio;
+import model_.Auditorio;
 import model_.CabineIndividual;
 import model_.Espaco;
-//import model_.Pagamento;
+import model_.Pagamento;
 import model_.SalaDeReuniao;
 
 
@@ -26,6 +26,10 @@ public class EspacoController {
 		espacoDAO.salvar(espaco);
 	}
 	
+	public void salvarAuditorio(String name, Integer capacidade, Double precoPorHora) {
+		Espaco espaco = new Auditorio();
+		espacoDAO.salvar(espaco);
+	}
 
 }
 
