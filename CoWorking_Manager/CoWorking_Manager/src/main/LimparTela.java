@@ -1,3 +1,4 @@
+package main;
 public class LimparTela {
 
     public static void cls() {

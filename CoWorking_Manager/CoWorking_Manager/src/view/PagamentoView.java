@@ -1,4 +1,4 @@
-package Views;
+package view;
 
 import java.util.Scanner;
 
@@ -6,9 +6,9 @@ import com.google.gson.Gson;
 
 import controller.PagamentoController;
 
-public class PagamentoViews {
+public class PagamentoView {
 	
-	public PagamentoViews(){
+	public PagamentoView(){
 	}
 	
 	public void operacaoPagamentoViews() {

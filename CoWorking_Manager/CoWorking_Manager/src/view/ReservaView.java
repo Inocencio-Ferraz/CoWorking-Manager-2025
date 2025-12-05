@@ -1,15 +1,15 @@
-package Views;
+package view;
 
 import java.util.Scanner;
 
 import com.google.gson.Gson;
 
-import Program.LimparTela;
+import main.LimparTela;
 import controller.EspacoController;
 
-public class ReservaViews {
+public class ReservaView {
 	
-	public ReservaViews() {
+	public ReservaView() {
 		
 	}
 	
