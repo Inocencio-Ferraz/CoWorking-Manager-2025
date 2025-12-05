@@ -7,7 +7,6 @@ import model_.Espaco;
 import model_.SalaDeReuniao;
 
 public class EspacoController {
-
     private EspacoDAO espacoDAO = new EspacoDAO();
 
     private String validarEspaco(String nome, Integer capacidade, Double precoPorHora) {

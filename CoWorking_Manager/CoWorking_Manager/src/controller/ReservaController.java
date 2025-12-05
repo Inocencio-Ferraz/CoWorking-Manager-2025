@@ -3,6 +3,7 @@ package controller;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import dao.EspacoDAO;
 import dao.ReservaDAO;
 import model_.Espaco;
 import model_.Reserva;
@@ -11,12 +12,28 @@ import enums.Status;
 public class ReservaController {
 
     private ReservaDAO reservaDAO = new ReservaDAO();
+    private EspacoDAO espacoDAO = new EspacoDAO();
 
-    public String criarReserva(Espaco espaco,   //criando a reserva
+    
+    
+    public String salvarReserva(String idEspaco, //criar reserva somente pelo ID do espaço
+                                LocalDateTime inicio,
+                                LocalDateTime fim) {
+
+        Espaco espaco = espacoDAO.buscarPorId(idEspaco);
+
+        if (espaco == null) {
+            return "Erro: Espaço não encontrado.";
+        }
+
+        return criarReserva(espaco, inicio, fim);
+    }
+
+    public String criarReserva(Espaco espaco,
                                LocalDateTime inicio,
                                LocalDateTime fim) {
 
-        if (espaco == null) { //validando algumas entradas 
+        if (espaco == null) {
             return "Erro: Espaço inválido.";
         }
 
@@ -34,7 +51,7 @@ public class ReservaController {
 
         int novoId = gerarNovoId();
 
-        Reserva reserva = new Reserva( //Nova reserva
+        Reserva reserva = new Reserva(
                 novoId,
                 espaco,
                 inicio,
@@ -47,13 +64,13 @@ public class ReservaController {
         return "Reserva criada com sucesso! ID = " + novoId;
     }
 
-    private boolean temSobreposicao(Espaco espaco, //Sobreposição (não sei se era necessário)
+    private boolean temSobreposicao(Espaco espaco,
                                     LocalDateTime inicio,
                                     LocalDateTime fim) {
 
         List<Reserva> reservas = reservaDAO.listar();
 
-        return reservas.stream() //vendo se tem sobreposição em uma reserva
+        return reservas.stream()
                 .filter(r -> r.getEspaco().getId().equals(espaco.getId()))
                 .filter(r -> r.getStatus() != Status.CANCELADO)
                 .anyMatch(r ->

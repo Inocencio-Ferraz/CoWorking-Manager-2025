@@ -1,10 +1,10 @@
 package main;
 import view.ReservaView;
 import java.util.Scanner;
-
+import view.PagamentoView;
 import com.google.gson.Gson;
 
-import view.PagamentoView;
+
 
 
 public class Main {
