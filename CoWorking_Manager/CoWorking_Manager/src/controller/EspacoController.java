@@ -1,13 +1,19 @@
 package controller;
+import java.util.List;
+
 //1 erro abaixo
 import dao.EspacoDAO;
+import dao.ReservaDAO;
 import model_.Auditorio;
 import model_.CabineIndividual;
 import model_.Espaco;
+import model_.Reserva;
 import model_.SalaDeReuniao;
 
 public class EspacoController {
+
     private EspacoDAO espacoDAO = new EspacoDAO();
+    private ReservaDAO reservaDAO = new ReservaDAO();
 
     private String validarEspaco(String nome, Integer capacidade, Double precoPorHora) {
 
@@ -95,5 +101,49 @@ public class EspacoController {
         espacoDAO.salvar(espaco);
 
         return "Sala de reunião cadastrada com sucesso! ID = " + espaco.getId();
+    }
+    
+    public void removerPorId(String id) {
+        
+        if (espacoDAO.buscarPorId(id) == null) {
+            return; // Exceção personalizada aqui ESPAÇO NÃO EXISTE
+        }
+        
+        espacoDAO.excluir(id);
+    }
+    
+    public Espaco buscarPorNome(String nome) {
+        
+        List<Espaco> espacos = espacoDAO.listar();
+        
+        if (espacos == null) {
+        	return null;
+        }
+        
+        String id = "0";
+        
+        boolean espacoExiste = false;
+        
+        for (Espaco espaco : espacos) {
+            if (espaco.getNome().equals(nome)) {
+                
+                id = espaco.getId();
+                
+                espacoExiste = true;
+                
+                break;
+            }
+        }
+        
+        if (!espacoExiste) {
+            return null; // Exceção personalizada aqui ESPAÇO NÃO EXISTE
+        }
+        
+        return espacoDAO.buscarPorId(id);
+    }
+    
+    
+    public List<Reserva> listarEspacos(){
+        return  reservaDAO.listar();
     }
 }
