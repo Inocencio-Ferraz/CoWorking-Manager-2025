@@ -90,4 +90,5 @@ public class RelatorioViews{
         System.out.println("------------------------------------------");
     }
 }
-// o que estar comentado estar dando erro
+// o que estar comentado estar dando erro, pehuei no chat e dessisti no meio pq eu ia bagunçar o codigo, isso ai e mais pra ter um norte 
+
