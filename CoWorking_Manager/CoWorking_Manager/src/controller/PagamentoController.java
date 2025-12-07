@@ -1,6 +1,7 @@
 package controller;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import dao.PagamentoDAO;
@@ -8,11 +9,18 @@ import dao.ReservaDAO;
 import model_.Pagamento;
 import model_.Reserva;
 
+
 public class PagamentoController {
 
     private PagamentoDAO pagamentoDAO = new PagamentoDAO();
     private ReservaDAO reservaDAO = new ReservaDAO();
+	private DateTimeFormatter formatadorData;
 
+    public PagamentoController() {
+		pagamentoDAO = new PagamentoDAO();
+		formatadorData = DateTimeFormatter.ofPattern("H:m dd/MM/yyyy");
+	}
+    
     public String registrarPagamento(Integer idReserva, String metodo) {
 
         Reserva reserva = reservaDAO.buscarPorId(idReserva.toString());
@@ -40,9 +48,21 @@ public class PagamentoController {
 
         return "Pagamento registrado com sucesso. ID = " + novoId;
     }
+    
+	public void atualizarPagamento(String id, double valorPago, String data, String metodo) {
+		
+		Pagamento pagamento = pagamentoDAO.buscarPorId(id);
+
+		pagamento.setValor(valorPago);
+		pagamento.setData(LocalDateTime.parse(data, formatadorData));
+		pagamento.setMetodo(enums.Pagamento.valueOf(metodo.toUpperCase()));
+		
+		pagamentoDAO.salvar(pagamento);
+	}
 
     public List<Pagamento> listarPagamentos() {
-        return pagamentoDAO.listar(Pagamento.class);
+    	
+      return pagamentoDAO.listar(Pagamento.class);
     }
 
     public Pagamento buscarPorId(Integer id) {
