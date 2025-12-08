@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "idReserva": 1,
+    "valor": 10.0,
+    "data": "07/12/2025 21:27",
+    "metodo": "DINHEIRO"
+  },
+  {
+    "id": 2,
+    "idReserva": 1,
+    "valor": 10.0,
+    "data": "07/12/2025 21:28",
+    "metodo": "PIX"
+  }
+]

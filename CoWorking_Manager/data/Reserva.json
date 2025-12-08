@@ -1,0 +1,51 @@
+[
+  {
+    "id": 2,
+    "espaco": {
+      "tipo": "SalaDeReuniao",
+      "propriedades": {
+        "usaProjetor": false,
+        "id": "3",
+        "nome": "SalaDeReunião",
+        "capacidade": 5,
+        "disponivel": true,
+        "precoPorHora": 30.0
+      }
+    },
+    "dataHoraInicio": "01/01/2026 14:0",
+    "dataHoraFim": "01/01/2026 15:0",
+    "status": "PENDENTE"
+  },
+  {
+    "id": 1,
+    "espaco": {
+      "tipo": "CabineIndividual",
+      "propriedades": {
+        "id": "2",
+        "nome": "CabiniIndividual01",
+        "capacidade": 1,
+        "disponivel": true,
+        "precoPorHora": 10.0
+      }
+    },
+    "dataHoraInicio": "30/12/2025 13:0",
+    "dataHoraFim": "30/12/2025 14:0",
+    "status": "CONFIRMADO"
+  },
+  {
+    "id": 3,
+    "espaco": {
+      "tipo": "Auditorio",
+      "propriedades": {
+        "id": "1",
+        "nome": "AUDITORIO",
+        "capacidade": 10,
+        "disponivel": true,
+        "precoPorHora": 2.0
+      }
+    },
+    "dataHoraInicio": "30/12/2025 16:0",
+    "dataHoraFim": "30/12/2025 18:0",
+    "status": "CONFIRMADO"
+  }
+]

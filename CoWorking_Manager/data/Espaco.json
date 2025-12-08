@@ -1,0 +1,33 @@
+[
+  {
+    "tipo": "Auditorio",
+    "propriedades": {
+      "id": "1",
+      "nome": "AUDITORIO",
+      "capacidade": 10,
+      "disponivel": true,
+      "precoPorHora": 2.0
+    }
+  },
+  {
+    "tipo": "CabineIndividual",
+    "propriedades": {
+      "id": "2",
+      "nome": "CABINEINDIVIDUAL",
+      "capacidade": 2,
+      "disponivel": true,
+      "precoPorHora": 4.0
+    }
+  },
+  {
+    "tipo": "SalaDeReuniao",
+    "propriedades": {
+      "usaProjetor": false,
+      "id": "3",
+      "nome": "SALADEREUNIAO",
+      "capacidade": 5,
+      "disponivel": true,
+      "precoPorHora": 6.0
+    }
+  }
+]
