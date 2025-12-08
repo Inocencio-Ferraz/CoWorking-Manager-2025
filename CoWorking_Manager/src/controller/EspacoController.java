@@ -1,13 +1,10 @@
 package controller;
 import java.util.List;
 
-//1 erro abaixo
 import dao.EspacoDAO;
-//import dao.ReservaDAO;
 import model_.Auditorio;
 import model_.CabineIndividual;
 import model_.Espaco;
-//import model_.Reserva;
 import model_.SalaDeReuniao;
 
 public class EspacoController {
